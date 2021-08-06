@@ -1,9 +1,6 @@
 @extends('students.layout')
-
-
-
 @section('content')
-<div class="col-md-18">
+<div class="col-md-12">
 <div class="panel panel-default">
     <div class="panel-heading">
      <div class="row">
@@ -21,12 +18,8 @@
                     Add New Student</a>
 
             </div>
-            <div class="col-md-6" id="showSearch">
-                <i class="fa fa-search">Search</i>
-            </div>
-            <div class="col-md-6" id="showSearch">
-                <i class="fa fa-filter">Filter</i>
-            </div>
+
+
 
         </div>
 
@@ -34,6 +27,16 @@
 
 
     <div class="panel-body">
+        <ul class="nav nav-tabs nav-tabs-highlight">
+            <li class="nav-item"><a href="#all-students" class="nav-link active" data-toggle="tab">All Students</a></li>
+            <li class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Sections</a>
+                <div class="dropdown-menu dropdown-menu-right">
+
+                </div>
+            </li>
+        </ul>
+
 
     @if ($message = Session::get('success'))
 
@@ -47,28 +50,30 @@
 
 
 
-    <table class="table table-bordered">
+    <table class="table stripped-button-html5-columns">
+        <thead>
         <tr>
 
-            <thead>
-            <th width="10">#</th>
-            <th width="10"><i class="fa fa-check"></i></th>
+
+            <th width="10px">No</th>
+            {{-- <thwidth="10"><iclass="fafa-check"></i></th> --}}
 
             {{-- <th>No</th> --}}
             <th width="120px">Names</th>
             <th>RegNo</th>
             <th>Email </th>
-            <th>Course</th>
+          <th>Course</th>
             <th>Mobile_No</th>
             <th>Image</th>
-             <th>Date</th >
+             {{-- <th>Date</th > --}}
+            <th>Action</th>
             {{--  <th width="250px">Action</th>--}}
-        </thead>
+
 
 
         </tr>
-
-
+    </thead>
+    <tbody>
         @foreach ($students as $student)
 
 
@@ -76,7 +81,6 @@
         <tr>
             <td>{{ ++$i}}</td>
 
-            <td><input type="checkbox" data-id="{{ $student['id'] }}" name="students[]" value="{{ $student['id'] }}"></td>
 
             {{-- <td>{{ ++$i }}</td> --}}
 
@@ -90,13 +94,15 @@
 
             <td>{{ $student->mobile_number}}</td>
 
-            <td><img src="/image/{{ $student->image }}" width="80px"></td>
+            <td><img  src="/image/{{ $student->image }}" width="50px"></td>
 
-            <td>{{ $student->created_at }}</td>
+            {{-- <td>{{ $student->created_at }}</td> --}}
 
-          {{--  <td>
+
+          <td>
 
                 <form action="{{ route('students.destroy',$student->id) }}" method="POST">
+
 
 
 
@@ -121,12 +127,20 @@
             </td>
 
 
-        </tr>--}}
+        </tr>
 
         @endforeach
 
+
+    </tbody>
+
+
+
+
+
     </table>
-    <div class="form-group">
+
+    {{-- <div class="form-group">
         <div class="col-sm-0">&nbsp;</div>
     <form action="{{ route('students.destroy',$student->id) }}" method="POST">
         <a class="btn btn-info" href="{{ route('students.show',$student->id) }}"><i class="fa fa-info-circle" aria-hidden="true"></i>
@@ -140,8 +154,17 @@
         </div>
     </div>
     </form>
-
+ --}}
     {!! $students->links() !!}
+    @if($students->previousPageUrl())
+    <a href="{{ route('students.index') . '/url/students/index' . $students->previousPageUrl() }}" class="btn btn-success btn-sm"><i class="fa fa-arrow-circle-left"></i> Back</a>
+@endif
+@if($students->nextPageUrl())
+    <a href="{{ route('students.index') . '/url/' . $students->nextPageUrl() }}" class="btn btn-success pull-right btn-sm">Next <i class="fa fa-arrow-circle-right"></i></a>
+    @endif
+    </div>
+    </div>
+
 
 
 
