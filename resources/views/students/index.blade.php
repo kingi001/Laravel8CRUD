@@ -98,7 +98,7 @@
 
                 <form action="{{ route('students.destroy',$student->id) }}" method="POST">
 
-                    <a class="btn btn-info" href="{{ route('students.show',$student->id) }}">Show</a>
+                    <a class="btn btn-secondary" href="{{ route('students.show',$student->id) }}">Show</a>
 
                     <a class="btn btn-primary" href="{{ route('students.edit',$student->id) }}">Edit</a>
 
