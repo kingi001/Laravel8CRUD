@@ -1,8 +1,4 @@
 @extends('students.layout')
-
-
-
-@section('content')
 @section('content')
 <div class="col-md-18">
 <div class="panel panel-default">

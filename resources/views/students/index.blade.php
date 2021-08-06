@@ -29,12 +29,7 @@
     <div class="panel-body">
         <ul class="nav nav-tabs nav-tabs-highlight">
             <li class="nav-item"><a href="#all-students" class="nav-link active" data-toggle="tab">All Students</a></li>
-            <li class="nav-item dropdown">
-                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Sections</a>
-                <div class="dropdown-menu dropdown-menu-right">
-
-                </div>
-            </li>
+            
         </ul>
 
 
