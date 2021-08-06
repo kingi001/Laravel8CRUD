@@ -101,7 +101,7 @@
 
 
 
-                    <a class="btn btn-info" href="{{ route('students.show',$student->id) }}">Show</a>
+                    <a class="btn btn-secondary" href="{{ route('students.show',$student->id) }}">Show</a>
 
 
 
