@@ -28,19 +28,12 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/css/bootstrap.css" rel="stylesheet">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 </head>
-
 <body>
-
-
-
 <div class="container" style= "padding: 30px 0px;">
+
 
     @yield('content')
 
 </div>
-
-
-
 </body>
-
 </html>

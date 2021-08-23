@@ -1,4 +1,17 @@
-@extends('students.layout')
+
+ <div class="col-md-12">
+ @if ($message = Session::get('success'))
+
+        <div class="alert alert-success alert-dismissible">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h6><i class="fa fa-exclamation-circle"></i> INFORMATION</h6>
+        <p>{{ $message }}</p>
+        {{session($message)}}
+        {{Session::forget($message)}}
+        </div>
+</div>
+    @endif
+    @extends('students.layout')
 @section('content')
 <div class="col-md-12">
 <div class="panel panel-default">
@@ -33,15 +46,6 @@
         </ul>
 
 
-    @if ($message = Session::get('success'))
-
-        <div class="alert alert-success">
-
-            <p>{{ $message }}</p>
-
-        </div>
-
-    @endif
 
 
 
@@ -142,12 +146,8 @@
     </form>
  --}}
     {!! $students->links() !!}
-    @if($students->previousPageUrl())
-    <a href="{{ route('students.index') . '/url/students/index' . $students->previousPageUrl() }}" class="btn btn-success btn-sm"><i class="fa fa-arrow-circle-left"></i> Back</a>
-@endif
-@if($students->nextPageUrl())
-    <a href="{{ route('students.index') . '/url/' . $students->nextPageUrl() }}" class="btn btn-success pull-right btn-sm">Next <i class="fa fa-arrow-circle-right"></i></a>
-    @endif
+    
+    
     </div>
     </div>
 

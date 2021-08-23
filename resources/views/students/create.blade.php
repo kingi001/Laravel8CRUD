@@ -1,8 +1,4 @@
 @extends('students.layout')
-
-
-
-
 @section('content')
 <div class="col-md-18">
     <div class="panel panel-default">
@@ -11,14 +7,17 @@
 <div class="row">
 
         <div class="col-md-6">
+        <div><i class="fa fa-users" aria-hidden="true"></i>
+        ADD NEW STUDENT</div>
 
-            <h5>ADD NEW STUDENT</h5>
+            
 
         </div>
 
         <div class="col-md-6" >
 
-            <a class="btn btn-primary pull-right" href="{{ route('students.index') }}"> Back</a>
+            <a class="btn btn-primary pull-right" href="{{ route('students.index') }}">students<i class="fa fa-eye" aria-hidden="true"></i>
+</a>
 
         </div>
 
@@ -125,7 +124,8 @@
         <div class="col-md-3">
             <div class="form-group">
                 <label>Date of Birth:</label>
-                <input name="dob" value="{{ old('dob') }}" type="text" class="form-control date-pick" placeholder="Select Date...">
+                <input name="dob" value="                {{ date('D, d/m/Y H:i:s A') }}
+ type="text" class="form-control date-pick" placeholder="Select Date...">
 
             </div>
         </div>
@@ -175,11 +175,34 @@
             </div>
         </div>
     </div>
+     <div class="row">
+
+        <div class="col-md-6">
+
+            <div class="form-group">
+
+                <label>Parent/guardian name: <span class="text-danger">*</span></label>
+
+                <input type="text" name="email_address" class="form-control" placeholder="parent full name">
+
+            </div>
+            </div>
+            <div class="col-md-6">
+            <div class="form-group">
+
+                <label  class="col-sm-6 control-label">Area of Residence: <span class="text-danger">*</span></label>
+
+                <input type="text" name="email_address" class="form-control" placeholder="residential area">
+
+            </div>
+            </div>
+
 
 
         <div class="col-xs-12 col-sm-16 col-md-12 text-center">
 
-                <button type="submit" class="btn btn-success" >Submit</button>
+                <button type="submit" class="btn btn-success" >ADD STUDENT<i class="fa fa-plus-circle" aria-hidden="true"></i>
+</button>
 
         </div>
 

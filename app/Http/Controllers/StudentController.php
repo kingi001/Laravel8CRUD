@@ -10,7 +10,7 @@ class StudentController extends Controller
 
     {
 
-        $students = Student::latest()->paginate(10);
+        $students = Student::oldest()->paginate(10);
 
         return view('students.index',compact('students'))
 
